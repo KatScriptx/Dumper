@@ -3292,33 +3292,7 @@ function q.dump_string(al, eO)
     end
     return true, aB()
 end
-if arg and arg[1] then
-    local eo = q.dump_file(arg[1], arg[2])
-    if eo then
-        B("Saved to: " .. (arg[2] or r.OUTPUT_FILE))
-        local eV = q.get_stats()
-        B(
-            string.format(
-                "Lines: %d | Remotes: %d | Strings: %d",
-                eV.total_lines,
-                eV.remote_calls,
-                eV.suspicious_strings
-            )
-        )
-    end
-else
-    local as = o.open("obfuscated.lua", "rb")
-    if as then
-        as:close()
-        local eo = q.dump_file("obfuscated.lua")
-        if eo then
-            B("Saved to: " .. r.OUTPUT_FILE)
-            B(q.get_output())
-        end
-    else
-        B("Usage: lua dumper.lua <input> [output] [key]")
-    end
-end
+
 _G.LuraphContinue = function()
 end
 return q
