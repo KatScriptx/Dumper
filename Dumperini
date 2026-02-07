@@ -2622,10 +2622,10 @@ ed.ror = function(d_, U)
 end
 ed.bswap = function(d_)
     d_ = d_ or 0
-    local bo = d_ >> 24 & 0xFF
-    local aa = d_ >> 8 & 0xFF00
-    local ah = d_ << 8 & 0xFF0000
-    local ef = d_ << 24 & 0xFF000000
+    local bo = (d_ >> 24) & 0xFF
+    local aa = (d_ >> 8) & 0xFF00
+    local ah = (d_ << 8) & 0xFF0000
+    local ef = (d_ << 24) & 0xFF000000
     return ee(bo | aa | ah | ef)
 end
 ed.countlz = function(U)
